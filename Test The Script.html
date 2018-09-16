@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+
+
+/*
+                                    Variable Definitions
+*/
+var word = ("nodocumentshouldevercontaintheseexactwordssodontbotherchangingitatall");
+var file = "./test.html";
+var outputDoc = "./testput.txt";
+var numberTrue = 1
+/*
+                                Word List function (wordFunc)
+*/
+function wordFunc(){
+  var fs = require("fs");
+}
+wordFunc()
+/*
+                                Read/Write function(readFunc)
+*/
+function readFunc(){
+  var fs = require("fs");
+  var outputRead = fs.readFileSync(file, 'utf8', function(err){
+   if (err){console.log("There was an error in reading, refer to readFunc")
+ }
+}
+);
+// Data has been read by now
+  fs.writeFile(outputDoc, "heya " + outputRead, function(err){
+    if (err){console.log("There was an error in writing, refer to readFunc")
+  }
+  }
+);
+  console.log("Writing Output Successful")
+}
+readFunc()                    /*CALLING READ/WRITE FUNCTION*/
+// Data has been ouputted to testput by now
+/*
+                              Word Finding Function (findFunc)
+*/
+function findFunc()
+{
+  var fs = require("fs");
+  var str = fs.readFile(outputDoc, 'utf8', function(err, data){
+    if (err)
+    {
+      console.log("There was an error while reading outputDoc, refer to findFunc")
+    }
+  var  str = data
+  var trs = str.includes(word);
+  console.log(trs)
+  if (trs == true) {
+    numberTrue = numberTrue + 1
+    console.log(str)
+  }
+  }
+);
+}
+findFunc()                     /*CALLING FIND FUNCTION*/
+</script>
+</body>
+</html>
